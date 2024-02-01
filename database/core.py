@@ -33,7 +33,7 @@ class DataBase:
         async with self.async_session.begin() as session:
             await session.execute(stmt)
 
-    async def get_users_looking_for_chat(self) -> list[int] | None: #запрос який вертає List user_id адмінів для подальшого функціоналу.
+    async def get_users_looking_for_chat(self) -> list[int] | None: 
         stmt = select(Users.user_id).where(Users.is_looking == True)
         
         try:
